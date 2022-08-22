@@ -4,9 +4,9 @@ import dotenv from "dotenv";
 import cors from "cors";
 import chalk from "chalk";
 //////////////////////////////////////////////////////////////////
+import authRoute from "./routes/auth.js";
 
 // const userRoute = require("./routes/user");
-// const authRoute = require("./routes/auth");
 // const productRoute = require("./routes/product");
 // const cartRoute = require("./routes/cart");
 // const orderRoute = require("./routes/order");
@@ -17,6 +17,8 @@ const app = express();
 //middlewares
 app.use(cors());
 app.use(express.json());
+//route api
+app.use("/api/auth", authRoute);
 
 dotenv.config();
 const start = async () => {
