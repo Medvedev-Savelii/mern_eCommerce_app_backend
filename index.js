@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import cors from "cors";
 import chalk from "chalk";
@@ -15,6 +16,8 @@ import userRoute from "./routes/user.js";
 const app = express();
 
 //middlewares
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use(express.json());
 //route api
