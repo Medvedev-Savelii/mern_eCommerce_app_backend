@@ -7,6 +7,7 @@ import chalk from "chalk";
 //////////////////////////////////////////////////////////////////
 import authRoute from "./routes/auth.js";
 import userRoute from "./routes/user.js";
+import productRoute from "./routes/product.js";
 
 // const productRoute = require("./routes/product");
 // const cartRoute = require("./routes/cart");
@@ -23,6 +24,7 @@ app.use(express.json());
 //route api
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
+app.use("/api/product", productRoute);
 
 dotenv.config();
 const start = async () => {
