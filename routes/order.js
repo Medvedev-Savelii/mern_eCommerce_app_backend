@@ -2,9 +2,10 @@ import {
   create,
   update,
   deleted,
-  getUserCart,
-  getUserAllCart,
-} from "../controllers/cartController.js";
+  getUserOrders,
+  getAllOrders,
+  getMonthlyIncome,
+} from "../controllers/orderController.js";
 import express from "express";
 import {
   verifyTokenAndAdmin,
@@ -15,14 +16,16 @@ import {
 const router = express.Router();
 
 //CREATE
-router.post("/", create);
+router.post("/", verifyToken, create);
 //UPDATE
-router.put("/:id", verifyTokenAndAuthorization, update);
+router.put("/:id", verifyTokenAndAdmin, update);
 //DELETE
-router.delete("/:id", verifyTokenAndAuthorization, deleted);
-//GET USER CART
-router.get("/find/:userId", verifyTokenAndAuthorization, getUserCart);
+router.delete("/:id", verifyTokenAndAdmin, deleted);
+//GET USER ORDERS
+router.get("/find/:userId", verifyTokenAndAuthorization, getUserOrders);
 //GET ALL
-router.get("/", verifyTokenAndAdmin, getUserAllCart);
+router.get("/", verifyTokenAndAdmin, getAllOrders);
+// GET MONTHLY INCOME
+router.get("/income", verifyTokenAndAdmin, getMonthlyIncome);
 
 export default router;

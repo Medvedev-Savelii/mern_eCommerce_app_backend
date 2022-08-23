@@ -10,8 +10,7 @@ import userRoute from "./routes/user.js";
 import productRoute from "./routes/product.js";
 import cartRoute from "./routes/cart.js";
 import orderRoute from "./routes/order.js";
-
-// const stripeRoute = require("./routes/stripe");
+import stripeRoute from "./routes/stripe.js";
 //////////////////////////////////////////////////////////////////
 const app = express();
 
@@ -27,6 +26,7 @@ app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
+app.use("/api/checkout", stripeRoute);
 
 dotenv.config();
 const start = async () => {
