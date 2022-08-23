@@ -8,10 +8,9 @@ import chalk from "chalk";
 import authRoute from "./routes/auth.js";
 import userRoute from "./routes/user.js";
 import productRoute from "./routes/product.js";
+import cartRoute from "./routes/cart.js";
+import orderRoute from "./routes/order.js";
 
-// const productRoute = require("./routes/product");
-// const cartRoute = require("./routes/cart");
-// const orderRoute = require("./routes/order");
 // const stripeRoute = require("./routes/stripe");
 //////////////////////////////////////////////////////////////////
 const app = express();
@@ -21,10 +20,13 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use(express.json());
+
 //route api
 app.use("/api/auth", authRoute);
-app.use("/api/user", userRoute);
-app.use("/api/product", productRoute);
+app.use("/api/users", userRoute);
+app.use("/api/products", productRoute);
+app.use("/api/carts", cartRoute);
+app.use("/api/orders", orderRoute);
 
 dotenv.config();
 const start = async () => {
