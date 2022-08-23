@@ -5,8 +5,8 @@ import cors from "cors";
 import chalk from "chalk";
 //////////////////////////////////////////////////////////////////
 import authRoute from "./routes/auth.js";
+import userRoute from "./routes/user.js";
 
-// const userRoute = require("./routes/user");
 // const productRoute = require("./routes/product");
 // const cartRoute = require("./routes/cart");
 // const orderRoute = require("./routes/order");
@@ -19,6 +19,7 @@ app.use(cors());
 app.use(express.json());
 //route api
 app.use("/api/auth", authRoute);
+app.use("/api/user", userRoute);
 
 dotenv.config();
 const start = async () => {

@@ -14,7 +14,7 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-const verifyTokenAndAuthorization = (req, res, next) => {
+export const verifyTokenAndAuthorization = (req, res, next) => {
   verifyToken(req, res, () => {
     if (req.user.id === req.params.id || req.user.isAdmin) {
       next();
@@ -24,7 +24,7 @@ const verifyTokenAndAuthorization = (req, res, next) => {
   });
 };
 
-const verifyTokenAndAdmin = (req, res, next) => {
+export const verifyTokenAndAdmin = (req, res, next) => {
   verifyToken(req, res, () => {
     if (req.user.isAdmin) {
       next();
@@ -32,10 +32,4 @@ const verifyTokenAndAdmin = (req, res, next) => {
       res.status(403).json("You are not alowed to do that!");
     }
   });
-};
-
-export default {
-  verifyToken,
-  verifyTokenAndAuthorization,
-  verifyTokenAndAdmin,
 };
