@@ -1,5 +1,5 @@
 import express from "express";
-
+import stripe from "stripe";
 const router = express.Router();
 
 router.post("/payment", (req, res) => {

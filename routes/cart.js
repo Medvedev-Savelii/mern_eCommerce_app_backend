@@ -9,7 +9,6 @@ import express from "express";
 import {
   verifyTokenAndAdmin,
   verifyTokenAndAuthorization,
-  verifyToken,
 } from "../middleware/verifyToken.js";
 
 const router = express.Router();

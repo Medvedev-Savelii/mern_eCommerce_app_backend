@@ -17,8 +17,8 @@ router.put("/:id", verifyTokenAndAdmin, update);
 //DELETE
 router.delete("/:id", verifyTokenAndAdmin, deleted);
 //GET PRODUCT
-router.get("/find/:id");
+router.get("/find/:id", getProduct);
 //GET ALL PRODUCTS
-router.get("/");
+router.get("/", getProducts);
 
 export default router;
