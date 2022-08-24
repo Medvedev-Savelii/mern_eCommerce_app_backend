@@ -1,6 +1,8 @@
+const KEY = process.env.STRIPE_KEY;
+import Stripe from "stripe";
 import express from "express";
-import stripe from "stripe";
 const router = express.Router();
+export const stripe = new Stripe(KEY);
 
 router.post("/payment", (req, res) => {
   stripe.charges.create(
